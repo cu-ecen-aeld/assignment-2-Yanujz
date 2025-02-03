@@ -64,7 +64,7 @@ fi
 if [ $? -eq 0 ]; then
     # Save the result of the 'file' command to fileresult.txt
     mkdir -p assignments/assignment2
-    file writer > assignments/assignment2/fileresult.txt
+    file ./writer > assignments/assignment2/fileresult.txt
 else
     echo "Make failed. Exiting."
     exit 1
