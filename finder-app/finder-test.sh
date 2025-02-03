@@ -53,22 +53,8 @@ fi
 # Clean and compile the writer application
 echo "Removing the old writer utility and compiling as a native application"
 make clean
+make
 
-# Compile with or without cross-compilation
-if [ -z ${CROSS_COMPILE+x} ]; then
-    make
-else
-    make CROSS_COMPILE=aarch64-none-linux-gnu-
-fi
-
-if [ $? -eq 0 ]; then
-    # Save the result of the 'file' command to fileresult.txt
-    mkdir -p assignments/assignment2
-    file ./writer > assignments/assignment2/fileresult.txt
-else
-    echo "Make failed. Exiting."
-    exit 1
-fi
 
 # Write the files
 for i in $( seq 1 $NUMFILES)
